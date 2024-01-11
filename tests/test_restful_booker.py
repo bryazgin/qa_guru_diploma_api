@@ -1,10 +1,15 @@
 import allure
 import requests
 import jsonschema
+from allure_commons.types import Severity
+
 from qa_guru_diploma_api.utils.load_schema import load_schema
 from qa_guru_diploma_api.utils.help_functions import get_token, get_id, get_id_to_delete
 
 
+@allure.tag("Diploma")
+@allure.severity(Severity.NORMAL)
+@allure.feature("Дипломный проект")
 def test_get_booking(default_url):
     id = get_id()
     headers = {'Accept': 'application/json'}
@@ -19,6 +24,9 @@ def test_get_booking(default_url):
         jsonschema.validate(result.json(), schema)
 
 
+@allure.tag("Diploma")
+@allure.severity(Severity.NORMAL)
+@allure.feature("Дипломный проект")
 def test_ping_healthcheck_status_code(default_url):
     with allure.step('Отправить GET запрос на эндпоинт "/ping"'):
         result = requests.get(f'{default_url}ping')
@@ -27,6 +35,9 @@ def test_ping_healthcheck_status_code(default_url):
         assert result.status_code == 201
 
 
+@allure.tag("Diploma")
+@allure.severity(Severity.NORMAL)
+@allure.feature("Дипломный проект")
 def test_create_booking(default_url):
     headers = {'Content-Type': 'application/json'}
     booking = {
@@ -50,6 +61,9 @@ def test_create_booking(default_url):
         jsonschema.validate(result.json(), schema)
 
 
+@allure.tag("Diploma")
+@allure.severity(Severity.NORMAL)
+@allure.feature("Дипломный проект")
 def test_delete_booking(default_url):
     token_func = get_token()
     token = f'token={token_func}'
@@ -63,6 +77,9 @@ def test_delete_booking(default_url):
         assert result.status_code == 201
 
 
+@allure.tag("Diploma")
+@allure.severity(Severity.NORMAL)
+@allure.feature("Дипломный проект")
 def test_update_booking(default_url):
     token_func = get_token()
     token = f'token={token_func}'
