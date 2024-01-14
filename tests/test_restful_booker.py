@@ -9,6 +9,7 @@ from qa_guru_diploma_api.utils.help_functions import get_token, get_id, get_id_t
 
 
 @allure.tag("Diploma")
+@allure.tag("API")
 @allure.severity(Severity.NORMAL)
 @allure.feature("Дипломный проект")
 def test_get_booking(default_url):
@@ -34,6 +35,7 @@ def test_get_booking(default_url):
 
 
 @allure.tag("Diploma")
+@allure.tag("API")
 @allure.severity(Severity.NORMAL)
 @allure.feature("Дипломный проект")
 def test_ping_healthcheck_status_code(default_url):
@@ -52,6 +54,7 @@ def test_ping_healthcheck_status_code(default_url):
 
 
 @allure.tag("Diploma")
+@allure.tag("API")
 @allure.severity(Severity.NORMAL)
 @allure.feature("Дипломный проект")
 def test_create_booking(default_url):
@@ -87,6 +90,7 @@ def test_create_booking(default_url):
 
 
 @allure.tag("Diploma")
+@allure.tag("API")
 @allure.severity(Severity.NORMAL)
 @allure.feature("Дипломный проект")
 def test_delete_booking(default_url):
@@ -110,6 +114,7 @@ def test_delete_booking(default_url):
 
 
 @allure.tag("Diploma")
+@allure.tag("API")
 @allure.severity(Severity.NORMAL)
 @allure.feature("Дипломный проект")
 def test_update_booking(default_url):
