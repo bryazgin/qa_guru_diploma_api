@@ -28,16 +28,18 @@ def test_create_booking(default_url):
         result = requests.post(f'{default_url}booking', json=booking, headers=headers)
         allure.attach(body=result.request.url, name="Request url", attachment_type=AttachmentType.TEXT)
         allure.attach(body=result.request.method, name="Request method", attachment_type=AttachmentType.TEXT)
-        allure.attach(body=result.request.body, name="Request body", attachment_type=AttachmentType.JSON, extension="json")
+        allure.attach(body=result.request.body, name="Request body", attachment_type=AttachmentType.JSON,
+                      extension="json")
     schema = load_schema('create_booking.json')
 
     with allure.step('Проверить, что статус код равен 200'):
         assert result.status_code == 200
         allure.attach(body=str(result.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
-                  extension='txt')
+                      extension='txt')
     with allure.step('Проверить json схему ответа'):
         jsonschema.validate(result.json(), schema)
-        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body", attachment_type=AttachmentType.JSON, extension="json")
+        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body",
+                      attachment_type=AttachmentType.JSON, extension="json")
     console_logging(result)
 
 
@@ -50,7 +52,7 @@ def test_get_booking(default_url):
     headers = {'Accept': 'application/json'}
     with allure.step('Отправить GET запрос на эндпоинт "/booking/{id}"'):
         result = requests.get(f'{default_url}booking/{id}',
-                          headers=headers)
+                              headers=headers)
         allure.attach(body=result.request.url, name="Request url", attachment_type=AttachmentType.TEXT)
         allure.attach(body=result.request.method, name="Request method", attachment_type=AttachmentType.TEXT)
     schema = load_schema('get_booking.json')
@@ -58,12 +60,12 @@ def test_get_booking(default_url):
     with allure.step('Проверить, что статус код равен 200'):
         assert result.status_code == 200
         allure.attach(body=str(result.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
-                  extension='txt')
+                      extension='txt')
     with allure.step('Проверить json схему ответа'):
         jsonschema.validate(result.json(), schema)
-        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body", attachment_type=AttachmentType.JSON, extension="json")
+        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body",
+                      attachment_type=AttachmentType.JSON, extension="json")
     console_logging(result)
-
 
 
 @allure.tag("Diploma")
@@ -79,7 +81,7 @@ def test_ping_healthcheck_status_code(default_url):
     with allure.step('Проверить, что статус код равен 201'):
         assert result.status_code == 201
         allure.attach(body=str(result.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
-                  extension='txt')
+                      extension='txt')
     console_logging(result)
 
 
@@ -101,9 +103,8 @@ def test_delete_booking(default_url):
     with allure.step('Проверить, что статус код равен 201'):
         assert result.status_code == 201
         allure.attach(body=str(result.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
-                  extension='txt')
+                      extension='txt')
     console_logging(result)
-
 
 
 @allure.tag("Diploma")
@@ -132,14 +133,15 @@ def test_update_booking(default_url):
         result = requests.put(f'{default_url}booking/{id}', json=booking, headers=headers)
         allure.attach(body=result.request.url, name="Request url", attachment_type=AttachmentType.TEXT)
         allure.attach(body=result.request.method, name="Request method", attachment_type=AttachmentType.TEXT)
-        allure.attach(body=result.request.body, name="Request body", attachment_type=AttachmentType.JSON, extension="json")
+        allure.attach(body=result.request.body, name="Request body", attachment_type=AttachmentType.JSON,
+                      extension="json")
 
     with allure.step('Проверить, что статус код равен 200'):
         assert result.status_code == 200
         allure.attach(body=str(result.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
-                  extension='txt')
+                      extension='txt')
     with allure.step('Проверить, что значение параметра lastname в ответе равно "White"'):
         assert result.json()['lastname'] == 'White'
-        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body", attachment_type=AttachmentType.JSON, extension="json")
+        allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response body",
+                      attachment_type=AttachmentType.JSON, extension="json")
     console_logging(result)
-
