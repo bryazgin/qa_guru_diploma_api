@@ -1,11 +1,9 @@
 import json
 import logging
-
 import allure
 import requests
 import jsonschema
 from allure_commons.types import Severity, AttachmentType
-
 from qa_guru_diploma_api.utils.load_schema import load_schema
 from qa_guru_diploma_api.utils.help_functions import get_token, get_id, get_id_to_delete
 
