@@ -20,6 +20,22 @@ API тесты реализованы в связке `Python`+`Requests`.
 <img src="resources/icons/allure_report.png" width="50">
 <img src="resources/icons/allure_testops.png" width="50"> <img src="resources/icons/tg.png" width="50">
 
+## Локальный запуск тестов
+
+### Выполнить в cmd:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pytest tests
+```
+
+### Получение отчёта:
+```bash
+allure serve build/allure-results
+```
+
 ## Запуск на сервере.
 
 Запуск тестов выполняется в проекте [Jenkins](https://jenkins.autotests.cloud/job/008-Bryazgin-api_diploma/).
