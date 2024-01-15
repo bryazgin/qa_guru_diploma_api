@@ -60,6 +60,9 @@ allure serve build/allure-results
 ### Пример дэшборда в Allure testops
 <img src="resources/screenshots/Allure Testops.png" width="1000">
 
+### Добавлена интеграция с jira
+<img src="resources/screenshots/Jira.png" width="1000">
+
 
 ### По результатам прогона получаем уведомление с краткой информацией в телеграм
 <p align="center"> 
