@@ -76,7 +76,7 @@ def test_delete_booking(default_url):
     headers = {'Content-Type': 'application/json',
                'Cookie': token}
     id = create_booking()
-    with allure.step('Отправить DELETE запрос на эндпоинт "/booking/{id}"'):
+    with allure.step(f'Отправить DELETE запрос на эндпоинт "/booking/{id}"'):
         result = delete_request(f'/booking/{id}', headers=headers)
     with allure.step('Проверить, что статус код равен 201'):
         assert result.status_code == 201
@@ -105,7 +105,7 @@ def test_update_booking(default_url):
         },
         "additionalneeds": "Breakfast"
     }
-    with allure.step('Отправить PUT запрос на эндпоинт "/booking/{id}"'):
+    with allure.step(f'Отправить PUT запрос на эндпоинт "/booking/{id}"'):
         result = put_request(f'/booking/{id}', json=booking, headers=headers)
     with allure.step('Проверить, что статус код равен 200'):
         assert result.status_code == 200
